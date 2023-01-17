@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>QuntoCursos</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">QuintoCursos</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/cursos">Cursos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/alumnos/nuevo">Alumnos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profesores">Profesores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/consultas">Consultas</a>
+      </li>
+    </ul>
+    
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div th:if="${exito!=null}" class="card text-white bg-success mb-3" >
+		<div class="card-body">
+			<h5 class="card-title">Exito</h5>
+			<p class="card-text" th:text="${exito}"></p>
+		</div>
+	</div>
+	
+	<div th:if="${error!=null}" class="card text-white bg-danger mb-3" >
+		<div class="card-body">
+			<h5 class="card-title">Error</h5>
+			<p class="card-text" th:text="${error}"></p>
+		</div>
+	</div>
+
+<div>
+<form action=/curso/registro method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Turno</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="turno">
+      <option>1 - Mañana</option>
+      <option>2 - Tarde</option>
+      <option>3 - Noche</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Horario Inicio</label>
+    <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="horarioI">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Horario Fin</label>
+    <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="horarioF">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Profesor</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="profesor">
+      <option th:each="profesor : ${profesores}" th:value="${profesor.nombre+' '+profesor.apellido}" th:text="${profesor.nombre +' ' + profesor.apellido}"></option>
+      <option>Sin profesor</option>
+    </select>
+  <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+</div>
+</body>
+</html>

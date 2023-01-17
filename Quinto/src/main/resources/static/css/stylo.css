@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/*BANNER*/
+#banner{
+	padding: 0 50px;
+	background-image: url(/images/5.jpg);
+	height: 40vh;
+	background-position: center;
+	background-size: cover;
+}
+
+#banner::before{
+	content: "";
+	background: rgb(77,77,92,0.6);
+	position: absolute;
+	width: 100%;
+	height: 40vh;
+	left: 0;
+}
+
+.contenido-banner{
+	position: absolute;
+	font-size: 100px;
+	font-weight: 400;
+	padding: 100px 500px;
+	color: white;
+	
+}
+
+.titulo {
+	color: #4D4D5C;
+	text-align: center;
+	margin-top: 10px;
+}
