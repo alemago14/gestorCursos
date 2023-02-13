@@ -32,3 +32,18 @@
 	text-align: center;
 	margin-top: 10px;
 }
+
+.letras-banner{
+	color: #000000;
+}
+
+.subtitulos{
+	position:relative;
+	text-align: center;
+	padding: 100px 500px;
+}
+
+#profesor-perfil{
+	height: 250px;
+	width: 150px;
+}

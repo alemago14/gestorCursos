@@ -172,6 +172,7 @@ public class CursoServicio {
 		return cursoRepositorio.findAll();
 	}
 	
+	
 	//metodo para listar los cursos sin profesor
 	public List<Curso> cursoSinProfesor() throws WebException{
 		Optional<List<Curso>> resp = cursoRepositorio.cursosnProfesor();

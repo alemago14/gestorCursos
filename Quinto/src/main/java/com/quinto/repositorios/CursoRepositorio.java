@@ -21,4 +21,7 @@ public interface CursoRepositorio extends JpaRepository<Curso, String>{
 	
 	@Query("SELECT c from Curso c WHERE c.alumnos <> :idAlumno")
 	public Optional<List<Curso>> cursoDistinto(@Param("idAlumno") String idAlumno);
+	
+	/*@Query("SELECT c FROM Curso c LIMIT 3")
+	public Optional<List<Curso>> tresCursos();*/
 }
